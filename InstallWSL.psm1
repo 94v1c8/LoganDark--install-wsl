@@ -322,9 +322,9 @@ Workflow Install-WSL {
 function Install-WSLInteractive {
 	$Distros = @(
 		[PSCustomObject]@{Slug = 'wslubuntu2004';       Name = 'Ubuntu 20.04';  Arch = 'x64'}
-		[PSCustomObject]@{Slug = 'wslubuntu2004arm';    Name = 'Ubuntu 20.04';  Arch = 'ARM64'}
+		#[PSCustomObject]@{Slug = 'wslubuntu2004arm';    Name = 'Ubuntu 20.04';  Arch = 'ARM64'}
 		[PSCustomObject]@{Slug = 'wsl-ubuntu-1804';     Name = 'Ubuntu 18.04';  Arch = 'x64'}
-		[PSCustomObject]@{Slug = 'wsl-ubuntu-1804-arm'; Name = 'Ubuntu 18.04';  Arch = 'ARM64'}
+		#[PSCustomObject]@{Slug = 'wsl-ubuntu-1804-arm'; Name = 'Ubuntu 18.04';  Arch = 'ARM64'}
 		[PSCustomObject]@{Slug = 'wsl-ubuntu-1604';     Name = 'Ubuntu 16.04';  Arch = 'x64'}
 		[PSCustomObject]@{Slug = 'wsl-debian-gnulinux'; Name = 'Debian Stable'; Arch = 'x64'}
 		[PSCustomObject]@{Slug = 'wsl-kali-linux-new';  Name = 'Kali Linux';    Arch = 'x64'}
