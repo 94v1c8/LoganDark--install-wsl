@@ -384,7 +384,8 @@ function Install-WSLInteractive {
 				
 				$Distros | ForEach-Object {
 					Add-Member -InputObject $_ -NotePropertyName Option -NotePropertyValue ([string]$Max) -Force
-					Write-Output " $Max) $($_.Name) ($($_.Arch))"
+					#Write-Output " $Max) $($_.Name) ($($_.Arch))"
+					Write-Output " $Max) $($_.Name)"
 					$Max += 1
 				}
 				
@@ -411,7 +412,8 @@ function Install-WSLInteractive {
 			}
 			'install-distro-confirm' {
 				Write-Output ''
-				Write-Host   " :: WARNING: Are you sure you want to install $($Distro.Name) ($($Distro.Arch))? (yes/no) " -NoNewLine
+				#Write-Host   " :: WARNING: Are you sure you want to install $($Distro.Name) ($($Distro.Arch))? (yes/no) " -NoNewLine
+				Write-Host   " :: WARNING: Are you sure you want to install $($Distro.Name)? (yes/no) " -NoNewLine
 				$Input = $Host.UI.ReadLine()
 				
 				switch ($Input) {
@@ -433,7 +435,8 @@ function Install-WSLInteractive {
 			}
 			'install-distro' {
 				Write-Output ''
-				Write-Output "Installing $($Distro.Name) ($($Distro.Arch))..."
+				#Write-Output "Installing $($Distro.Name) ($($Distro.Arch))..."
+				Write-Output "Installing $($Distro.Name)..."
 				Install-WSL -LinuxDistribution ($Distro.Slug)
 				$Menu = 'exit'
 			}
