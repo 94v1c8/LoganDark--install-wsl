@@ -481,6 +481,7 @@ function Install-WSLInteractive {
 			default {
 				Write-Output ''
 				Write-Host   " !! Invalid menu encountered ($Menu). Exiting" -ForegroundColor Red
+				Write-Host   ' !! THIS IS A BUG, PLEASE REPORT IT TO THE AME DEVS' -ForegroundColor Red
 				$Menu = 'exit'
 			}
 		}
