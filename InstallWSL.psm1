@@ -207,7 +207,11 @@ Workflow Install-WSL {
 		}
 	}
 	
-	Write-Output "`n`n`n`n`n`n`n`n`n`nWarning: The PowerShell window will display the download process for longer than usual. This is a Windows bug, and is only visual.`n"
+	# This is so that the progress indicator doesn't obstruct the text
+	Write-Output "`n`n`n`n`n`n`n`n`n"
+	Write-Output 'Warning: The PowerShell window will display the download process for longer than'
+	Write-Output 'usual. This is a Windows bug, and is only visual.'
+	Write-Output ''
 	
 	$retrying = $True
 	while ($retrying) {
