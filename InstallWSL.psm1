@@ -334,6 +334,10 @@ function Install-WSLInteractive {
 	
 	$Menu = 'main'
 	
+	if ([Security.Principal.WindowsIdentity]::GetCurrent().Groups -contains 'S-1-5-32-544') {
+		$Menu = 'admin'
+	}
+	
 	while ($Menu -ne 'exit') {
 		Clear-Host
 		# 80 chars:  '                                                                                '
@@ -464,6 +468,15 @@ function Install-WSLInteractive {
 				Write-Host   '    Press enter to continue...' -NoNewLine
 				$Host.UI.ReadLine()
 				$Menu = 'main'
+			}
+			'admin' {
+				Write-Output ''
+				Write-Host   ' !! This script should NOT be run as Administrator' -ForegroundColor Red
+				Write-Host   ' !! Please close this window and run the script normally' -ForegroundColor Red
+				Write-Output ''
+				Write-Host   '    Press enter to continue...' -NoNewLine
+				$Host.UI.ReadLine()
+				$Menu = 'exit'
 			}
 			default {
 				Write-Output ''
