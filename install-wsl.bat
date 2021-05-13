@@ -81,18 +81,18 @@ echo     Installs Windows Terminal using scoop.
 goto end
 
 :install
-powershell.exe -ExecutionPolicy ByPass "Import-Module %~dp0install-wsl.psm1; $a = Install-WSL -LinuxDistribution %2%extra%"
+powershell.exe -ExecutionPolicy ByPass "Import-Module \"%~dp0install-wsl.psm1\"; $a = Install-WSL -LinuxDistribution %2%extra%"
 goto end
 
 :cancel
-powershell.exe -ExecutionPolicy ByPass "Import-Module %~dp0install-wsl.psm1; $a = Install-WSL -Cancel%extra%"
+powershell.exe -ExecutionPolicy ByPass "Import-Module \"%~dp0install-wsl.psm1\"; $a = Install-WSL -Cancel%extra%"
 goto end
 
 :windowsterminal
-powershell.exe -ExecutionPolicy ByPass "Import-Module %~dp0install-wsl.psm1; $a = Install-WSL -InstallWindowsTerminal%extra%"
+powershell.exe -ExecutionPolicy ByPass "Import-Module \"%~dp0install-wsl.psm1\"; $a = Install-WSL -InstallWindowsTerminal%extra%"
 goto end
 
 :default
-powershell.exe -ExecutionPolicy ByPass "Import-Module %~dp0install-wsl.psm1; $a = Install-WSLInteractive"
+powershell.exe -ExecutionPolicy ByPass "Import-Module \"%~dp0install-wsl.psm1\"; $a = Install-WSLInteractive"
 
 :end
