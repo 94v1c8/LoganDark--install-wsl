@@ -507,7 +507,7 @@ function Install-WSLInteractive {
 				$Menu = 'exit'
 			}
 			'result-restart-needed' {
-				Write-Host ''
+				Clear-Host
 				Write-Host ' !! WSL installation will resume once you restart Windows'
 				Write-Host ''
 				Write-Host '    Please ensure you stay connected to the Internet.'
@@ -517,7 +517,7 @@ function Install-WSLInteractive {
 				$Menu = 'exit'
 			}
 			'result-done' {
-				Write-Host ''
+				Clear-Host
 				Write-Host ' :: Installation done!'
 				Write-Host ''
 				Write-Host '    The WSL feature was already installed and enabled on your system, so we were'
