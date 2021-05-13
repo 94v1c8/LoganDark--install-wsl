@@ -61,7 +61,7 @@ echo Usage: install-wsl.bat --help
 echo     Displays all possible invocations of this script and brief descriptions of
 echo     each.
 echo.
-echo Usage: install-wsl.bat --install <distro> [--quiet]
+echo Usage: install-wsl.bat --install ^<distro^> [--quiet]
 echo     Installs the given distribution. If the --quiet flag is given then no output
 echo     will be printed.
 echo.
