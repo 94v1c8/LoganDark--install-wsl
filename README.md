@@ -10,7 +10,7 @@ To get this script, simply head over to [releases](https://git.ameliorated.info/
 
     git clone https://git.ameliorated.info/LoganDark/install-wsl.git
 
-To a script in CMD or Powershell, enter the path of the script and press return:
+To run a script in CMD or Powershell, enter the path of the script and press return:
 
     C:\Users\user> "Downloads\install-wsl\install-wsl.bat"
 
