@@ -25,8 +25,14 @@ Workflow Install-WSL {
 		[Parameter(Mandatory=$False,ParameterSetName='Installation')]
 		[switch]$FeatureInstalled,
 		
+		[Parameter(Mandatory=$False,ParameterSetName='Installation')]
+		[switch]$OmitWindowsTerminal,
+		
 		[Parameter(Mandatory=$True,ParameterSetName='Cancelation')]
-		[switch]$Cancel
+		[switch]$Cancel,
+		
+		[Parameter(Mandatory=$False,ParameterSetName='WindowsTerminal')]
+		[switch]$InstallWindowsTerminal
 	)
 	
 	# The task scheduler is unreliable in AME
@@ -36,6 +42,17 @@ Workflow Install-WSL {
 		$Removed = Remove-Item -LiteralPath $ShortcutPath -ErrorAction SilentlyContinue
 		$Removed = Get-Job -Command 'Install-WSL' | Where-Object {$_.State -eq 'Suspended'} | Remove-Job -Force
 		Write-Information 'All pending WSL installations have been canceled.'
+		return 'done'
+	} elseif ($InstallWindowsTerminal) {
+		InlineScript {
+			$ExecutionPolicy = Get-ExecutionPolicy -Scope Process
+			Set-ExecutionPolicy RemoteSigned -Scope Process
+			Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
+			Set-ExecutionPolicy $ExecutionPolicy -Scope Process
+			scoop bucket add extras
+			scoop install windows-terminal
+		}
+		
 		return 'done'
 	}
 	
@@ -54,7 +71,7 @@ Workflow Install-WSL {
 		$shell = New-Object -ComObject ('WScript.Shell')
 		$shortcut = $shell.CreateShortcut($Using:ShortcutPath)
 		$shortcut.TargetPath = 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe'
-		$shortcut.Arguments = "-WindowStyle Normal -NoLogo -NoProfile -Command `"& { Write-Output \`"Resuming installation...\`"; Get-Job -Command `'Install-WSL`' | Resume-Job | Receive-Job -Wait; pause; exit }`""
+		$shortcut.Arguments = "-WindowStyle Normal -NoLogo -NoProfile -Command `"& { Write-Output \`"Resuming installation...\`"; Get-Job -Command `'Install-WSL`' | Resume-Job | Receive-Job -Wait -InformationAction Continue; pause; exit }`""
 		$shortcut.Save()
 	}
 	
@@ -302,6 +319,19 @@ Workflow Install-WSL {
 	Write-Information "Executing installer: $($Executable.Name)"
 	InlineScript { wsl --set-default-version 1 }
 	Start-Process -FilePath ($Executable.FullName) -Wait
+	
+	if (!$OmitWindowsTerminal) {
+		Write-Information 'Installing Windows Terminal...'
+		
+		InlineScript {
+			$ExecutionPolicy = Get-ExecutionPolicy -Scope Process
+			Set-ExecutionPolicy RemoteSigned -Scope Process
+			Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
+			Set-ExecutionPolicy $ExecutionPolicy -Scope Process
+			scoop bucket add extras
+			scoop install windows-terminal
+		}
+	}
 	
 	Write-Information 'Everything should be in order now. Enjoy!'
 	
