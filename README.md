@@ -2,7 +2,7 @@
 
 Script for installing WSL on Windows 10 AME.
 
-![install-wsl Screenshot] (data/screenshot.png)
+![install-wsl Screenshot](data/screenshot.png)
 
 To run this on your own system, download the repository as a ZIP, unzip it, then double-click the Batch file.
 
