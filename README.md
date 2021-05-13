@@ -14,7 +14,9 @@ To run a script in CMD or Powershell, enter the path of the script and press ret
 
     C:\Users\user> "Downloads\install-wsl\install-wsl.bat"
 
-## Flags for non-interactive Installations
+You can also just double-click the .bat file, and it'll open the main menu (the one you can see in the screenshot). The script should not be run as administrator.
+
+## Flags for Non-Interactive Installations
 
 This script also includes extra flags for non-interactive insallations. They can be viewed by specifying the `--help` flag.
 
