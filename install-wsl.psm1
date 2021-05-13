@@ -201,6 +201,8 @@ Workflow Install-WSL {
 		}
 	}
 	
+	Write-Information "`n`n`n`n`n`n`n"
+	
 	$retrying = $True
 	while ($retrying) {
 		$tempFile = InlineScript { New-TemporaryFile }
@@ -208,7 +210,6 @@ Workflow Install-WSL {
 		$tempFile = $tempFile.FullName -replace '$','.zip'
 		
 		try {
-			Write-Information ''
 			Write-Information "Attempting to download distribution to $tempFile..."
 			
 			$data = InlineScript {
@@ -251,7 +252,7 @@ Workflow Install-WSL {
 			Remove-Item -LiteralPath $tempFile -ErrorAction SilentlyContinue
 			
 			# PSItem is contextual and can't be read from the InlineScript
-			$theError = $PSItem.Message
+			$theError = $PSItem
 			
 			Write-Information "Error: $theError"
 			
