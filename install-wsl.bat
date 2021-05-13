@@ -62,8 +62,10 @@ echo     Displays all possible invocations of this script and brief descriptions
 echo     each.
 echo.
 echo Usage: install-wsl.bat --install ^<distro^> [--quiet]
-echo     Installs the given distribution. If the --quiet flag is given then no output
-echo     will be printed.
+echo     Begins installing the given distribution. If the --quiet flag is given then
+echo     no output will be printed. If the Windows Subsystem for Linux is not
+echo     installed, it will be enabled and a startup item will be created to resume
+echo     the installation on reboot.
 echo.
 echo     Valid distributions:
 echo       wslubuntu2004, wslubuntu2004arm, wsl-ubuntu-1804, wsl-ubuntu-1804-arm,
