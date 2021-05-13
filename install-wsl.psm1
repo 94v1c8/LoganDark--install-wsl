@@ -202,6 +202,10 @@ Workflow Install-WSL {
 	}
 	
 	Write-Information "`n`n`n`n`n`n`n"
+	Write-Information 'It will take a few minutes to download the distribution. Most WSL distros are'
+	Write-Information 'at or around 200 MB in size. Depending on your internet connection, you could be'
+	Write-Information 'staring at this screen for 10 minutes. Sit back and relax, grab a cup of tea...'
+	Write-Information ''
 	
 	$retrying = $True
 	while ($retrying) {
