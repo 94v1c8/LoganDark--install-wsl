@@ -365,7 +365,7 @@ function Install-WSLInteractive {
 	while ($Menu -ne 'exit') {
 		Clear-Host
 		# 80 chars:  '                                                                                '
-		Write-Host ' :: WSL INSTALL SCRIPT FOR WINDOWS 10 AME'
+		Write-Host ' :: WSL INSTALL SCRIPT FOR WINDOWS 10 AME v1.0.0'
 		Write-Host ''
 		Write-Host '    This script will help you install Windows Subsystem for Linux on your'
 		Write-Host '    ameliorated installation of Windows 10'
