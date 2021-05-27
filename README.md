@@ -18,7 +18,7 @@ You can also just double-click the .bat file, and it'll open the main menu (the 
 
 ## Flags for Non-Interactive Installations
 
-This script also includes extra flags for non-interactive insallations. They can be viewed by specifying the `--help` flag.
+This script also includes extra flags for non-interactive installations. They can be viewed by specifying the `--help` flag.
 
 ```
 Usage: install-wsl.bat --help
