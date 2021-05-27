@@ -1,3 +1,7 @@
+# Created for Windows 10 AME version 20H2
+# Script version: 1.0.0
+# Author: Logan Darklock <logandarklock+ame@gmail.com> (no spam please)
+
 # https://stackoverflow.com/a/34559554/
 function New-TemporaryDirectory {
 	$parent = [System.IO.Path]::GetTempPath()
