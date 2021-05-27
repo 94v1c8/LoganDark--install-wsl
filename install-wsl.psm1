@@ -136,7 +136,7 @@ Workflow Install-WSL {
 		# once in a row. For example if you are installing multiple distros
 		# Should work okay...
 		
-		Write-Information 'Restart your computer in 30 seconds or it will explode'
+		Write-Information 'Please restart your computer to continue the installation'
 		
 		'restart-needed'
 		Suspend-Workflow
